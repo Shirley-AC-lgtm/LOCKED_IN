@@ -388,7 +388,7 @@ function enviarDocumento(text) {
     documentText = text;
 
     fetch(
-        "https://localhost:7068/api/Plasma/analizar",
+        "https://plasma-api.onrender.com/api/Plasma/analizar",
         {
             method: "POST",
             headers:
@@ -1606,7 +1606,7 @@ downloadAudioBtn.addEventListener("click", async () => {
     try {
 
         const response = await fetch(
-            "https://localhost:7068/api/Plasma/audio",
+            "https://plasma-api.onrender.com/api/Plasma/audio",
             {
                 method: "POST",
 
