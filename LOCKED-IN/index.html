@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LOCKED IN</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="splashScreen">
+
+        <img src="assets/images/plasma_logo.png"
+             alt="Plasma Logo"
+             id="splashLogo">
+
+    </div>
+
+    <div class="background"></div>
+
+    <div class="particles">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+    <div class="clock" id="clock">
+        00:00:00
+    </div>
+
+    <div class="container">
+
+        <h1>LOCKED IN</h1>
+
+        <p>You don't leave until you learn..</p>
+
+
+
+        <button id="enterBtn">
+            ENTER
+        </button>
+
+    </div>
+
+    <div class="locked-screen" id="lockedScreen">
+
+        <h2>FOCUS MODE</h2>
+
+        <p class="focus-text">
+            Eliminate distractions.
+            Stay focused.
+        </p>
+
+        <div class="setup-panel">
+
+            <div class="settings-title">
+                <span>SESSION SETUP</span>
+                <div class="title-line"></div>
+            </div>
+
+
+            <!-- STUDY MATERIAL -->
+
+            <div class="setup-section">
+
+                <div class="section-label">
+                    <span class="section-number">01</span>
+                    STUDY MATERIAL
+                </div>
+
+                <div class="upload-area">
+
+                    <div class="upload-icon">
+                        ↑
+                    </div>
+
+                    <div class="upload-title">
+                        UPLOAD MATERIAL
+                    </div>
+
+                    <div class="upload-formats">
+                        PDF · DOCX · PPTX · TXT
+                    </div>
+
+                    <input type="file"
+                           id="fileInput"
+                           accept=".txt,.pdf,.doc,.docx,.ppt,.pptx">
+
+                    <label for="fileInput"
+                           class="upload-button">
+
+                        CHOOSE FILE
+
+                    </label>
+
+                    <p id="fileStatus">
+                        No file uploaded
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- MEMORY REVIEWS -->
+
+            <div class="setup-section">
+
+                <div class="section-label">
+
+                    <span class="section-number">
+                        02
+                    </span>
+
+                    MEMORY REVIEWS
+
+                </div>
+
+                <div class="review-control">
+
+                    <span>
+                        How many times should you review
+                        the complete flashcard set?
+                    </span>
+
+                    <select id="memoryRepeats">
+
+                        <option value="1">
+                            1 REVIEW
+                        </option>
+
+                        <option value="3">
+                            3 REVIEWS
+                        </option>
+
+                        <option value="5">
+                            5 REVIEWS
+                        </option>
+
+                        <option value="8" selected>
+                            8 REVIEWS
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- SESSION GOAL -->
+
+            <div class="setup-section">
+
+                <div class="section-label">
+
+                    <span class="section-number">
+                        03
+                    </span>
+
+                    SESSION GOAL
+
+                </div>
+
+                <div class="goal-description">
+                    Correct answers required to complete
+                    the session.
+                </div>
+
+                <div class="goal-buttons">
+
+                    <button class="goal-btn">
+                        10
+                    </button>
+
+                    <button class="goal-btn">
+                        20
+                    </button>
+
+                    <button class="goal-btn">
+                        30
+                    </button>
+
+                    <button class="goal-btn">
+                        40
+                    </button>
+
+                    <button class="goal-btn">
+                        50
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- START -->
+
+            <div class="ready-area">
+
+                <div class="ready-line"></div>
+
+                <button id="readyBtn">
+
+                    READY
+
+                    <span>→</span>
+
+                </button>
+
+                <div class="ready-hint">
+                    START YOUR FOCUS SESSION
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="flashcards-screen"
+         id="flashcardsScreen">
+
+    </div>
+
+    <div class="summary-screen" id="summaryScreen">
+
+        <div class="summary-wrapper">
+
+            <!-- HEADER -->
+
+            <div class="summary-header">
+
+                <div class="analysis-status">
+
+                    <span class="status-icon">✓</span>
+
+                    <div>
+                        <span class="status-label">
+                            PLASMA ANALYSIS COMPLETE
+                        </span>
+
+                        <span class="status-subtitle">
+                            Your study material has been analyzed.
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="summary-title">
+
+                    <h2>SUMMARY</h2>
+
+                    <p>AI-GENERATED STUDY GUIDE</p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SUMMARY CONTENT -->
+
+            <div class="summary-card">
+
+                <div class="summary-card-header">
+
+                    <span>OVERVIEW</span>
+
+                    <div class="summary-card-line"></div>
+
+                </div>
+
+                <div id="summaryContent">
+
+                </div>
+
+            </div>
+
+
+            <!-- DOCUMENT / SUMMARY -->
+
+            <div class="summary-tools">
+
+                <button id="showDocumentBtn">
+                    ◉
+                    VIEW DOCUMENT
+                </button>
+
+                <button id="showSummaryBtn">
+                    ✦
+                    VIEW SUMMARY
+                </button>
+
+                <button id="downloadSummaryBtn">
+                    ↓
+                    DOWNLOAD SUMMARY
+                </button>
+
+            </div>
+
+            <div class="summary-actions">
+
+                <button id="listenSummaryBtn" class="tool-btn">
+                    <span>♫</span>
+                    LISTEN TO SUMMARY
+                </button>
+
+                <button id="downloadAudioBtn" class="tool-btn">
+                    ↓ DOWNLOAD AUDIO
+                </button>
+
+            </div>
+
+            <!-- START -->
+
+            <div class="summary-start">
+
+                <div class="start-line"></div>
+
+                <button id="startFlashcardsBtn">
+
+                    START FLASHCARDS
+
+                    <span>→</span>
+
+                </button>
+
+                <p>
+                    TURN KNOWLEDGE INTO MEMORY
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="quiz-container" id="quizContainer">
+
+        <h2 class="question" id="question">
+            Upload a file to get started, then type "OK" to begin the session.
+        </h2>
+
+        <input type="text"
+               id="answerInput"
+               placeholder="Escribe tu respuesta">
+
+        <button id="submitAnswer">
+            VERIFY
+        </button>
+
+        <div class="progress-container">
+
+            <div class="progress-bar" id="progressBar"></div>
+
+        </div>
+
+        <div class="streak-box">
+
+            <span>Current Streak</span>
+
+            <h3 id="streak">
+                0
+            </h3>
+
+        </div>
+
+        <div id="flashcardsContainer">
+
+        </div>
+
+    </div>
+
+    <div class="results-screen" id="resultsScreen">
+
+        <div class="results-wrapper">
+
+            <!-- COMPLETION STATUS -->
+
+            <div class="completion-status">
+
+                <div class="completion-icon">
+                    ✓
+                </div>
+
+                <span>
+                    SESSION COMPLETED
+                </span>
+
+            </div>
+
+
+            <!-- MAIN RESULT -->
+
+            <div class="results-header">
+
+                <h2>
+                    WELL DONE
+                </h2>
+
+                <p>
+                    Your focus session is complete.
+                </p>
+
+            </div>
+
+
+            <!-- SCORE -->
+
+            <div class="score-display">
+
+                <div class="score-number">
+
+                    <span id="finalScoreNumber">
+                        10
+                    </span>
+
+                    <span class="score-divider">
+                        /
+                    </span>
+
+                    <span id="finalGoalNumber">
+                        10
+                    </span>
+
+                </div>
+
+                <div class="score-label">
+                    PERFECT SCORE
+                </div>
+
+            </div>
+
+
+            <!-- STATS -->
+
+            <div class="results-stats">
+
+                <div class="result-stat">
+
+                    <span class="stat-label">
+                        SESSION GOAL
+                    </span>
+
+                    <strong id="resultGoal">
+                        10
+                    </strong>
+
+                </div>
+
+
+                <div class="result-stat">
+
+                    <span class="stat-label">
+                        CORRECT ANSWERS
+                    </span>
+
+                    <strong id="resultCorrect">
+                        10
+                    </strong>
+
+                </div>
+
+
+                <div class="result-stat">
+
+                    <span class="stat-label">
+                        FINAL STREAK
+                    </span>
+
+                    <strong id="resultStreak">
+                        10
+                    </strong>
+
+                </div>
+
+
+                <div class="result-stat">
+
+                    <span class="stat-label">
+                        ACCURACY
+                    </span>
+
+                    <strong id="resultAccuracy">
+                        100%
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- MESSAGE -->
+
+            <p class="results-message">
+                Knowledge secured. Keep going.
+            </p>
+
+
+            <!-- ACTIONS -->
+
+            <div class="results-actions">
+
+                <button id="studyAgainBtn"
+                        class="primary-result-btn">
+
+                    STUDY AGAIN
+
+                    <span>→</span>
+
+                </button>
+
+                <button id="restartBtn"
+                        class="secondary-result-btn">
+
+                    RESTART SESSION
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <audio id="bgMusic" loop>
+
+        <source src="assets/music/focus.mp3"
+                type="audio/mpeg">
+
+    </audio>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://unpkg.com/mammoth/mammoth.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
