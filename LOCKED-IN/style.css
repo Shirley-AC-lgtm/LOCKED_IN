@@ -2371,3 +2371,23 @@ input {
             transform: scale(0.97);
         }
 }
+
+@media (max-width: 700px) {
+
+    .summary-tools {
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+        .summary-tools button {
+            width: 100%;
+            min-width: 0;
+            height: auto;
+            min-height: 54px;
+            padding: 14px 16px;
+            font-size: 13px;
+            letter-spacing: 2px;
+            box-sizing: border-box;
+        }
+}
