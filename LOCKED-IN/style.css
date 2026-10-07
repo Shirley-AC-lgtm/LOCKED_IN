@@ -2442,3 +2442,51 @@ input {
 #analysisProgressPercent {
     margin-top: 2px;
 }
+
+/* ============================= */
+/* ANALISIS DEL DOCUMENTO        */
+/* ============================= */
+
+#analysisStatus {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#fileStatus {
+    margin: 0;
+}
+
+/* Barra oculta hasta que empieza el análisis */
+
+#analysisProgressContainer {
+    display: none;
+    width: 70%;
+    height: 5px;
+    margin: 8px auto 5px;
+    background: rgba(160, 180, 195, 0.25);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#analysisProgress {
+    width: 0%;
+    height: 100%;
+    background: #8fd8ff;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+#analysisProgressText {
+    display: none;
+    margin: 4px 0 0;
+    color: #8fd8ff;
+    font-size: 12px;
+}
+
+#analysisProgressPercent {
+    display: none;
+    margin: 2px 0 0;
+    color: #8fd8ff;
+    font-size: 11px;
+}

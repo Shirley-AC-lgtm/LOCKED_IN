@@ -131,27 +131,56 @@ function mostrarProgresoAnalisis(
             "analysisProgressPercent"
         );
 
-    if (!container) return;
 
-    // Ocultar "No file uploaded"
-    if (fileStatus) {
-        fileStatus.style.display = "none";
+    if (
+        !container ||
+        !progreso ||
+        !texto ||
+        !porcentajeTexto
+    ) {
+        console.log(
+            "ERROR: elementos de progreso no encontrados"
+        );
+
+        return;
     }
 
-    // Mostrar progreso
-    container.style.display = "block";
 
-    texto.style.display = "block";
-    porcentajeTexto.style.display = "block";
+    // Ocultar "No file uploaded"
+
+    if (fileStatus) {
+
+        fileStatus.style.display =
+            "none";
+
+    }
+
+
+    // Mostrar barra
+
+    container.style.display =
+        "block";
+
+    texto.style.display =
+        "block";
+
+    porcentajeTexto.style.display =
+        "block";
+
+
+    // Actualizar progreso
 
     progreso.style.width =
         porcentaje + "%";
 
+
     texto.innerText =
         mensaje;
 
+
     porcentajeTexto.innerText =
         porcentaje + "%";
+
 }
 
 /* ELEMENTOS */
@@ -748,6 +777,16 @@ fileInput.addEventListener("change", (event) => {
 
                     const content =
                         await page.getTextContent();
+
+                    const porcentaje =
+                        Math.round(
+                            (i / pdf.numPages) * 100
+                        );
+
+                    mostrarProgresoAnalisis(
+                        porcentaje,
+                        `Procesando página ${i} de ${pdf.numPages}`
+                    );
 
                     const porcentaje =
                         Math.round(
