@@ -106,6 +106,16 @@ function mostrarProgresoAnalisis(
     mensaje
 ) {
 
+    const fileStatus =
+        document.getElementById(
+            "fileStatus"
+        );
+
+    const container =
+        document.getElementById(
+            "analysisProgressContainer"
+        );
+
     const progreso =
         document.getElementById(
             "analysisProgress"
@@ -121,20 +131,27 @@ function mostrarProgresoAnalisis(
             "analysisProgressPercent"
         );
 
-    if (!progreso) return;
+    if (!container) return;
+
+    // Ocultar "No file uploaded"
+    if (fileStatus) {
+        fileStatus.style.display = "none";
+    }
+
+    // Mostrar progreso
+    container.style.display = "block";
+
+    texto.style.display = "block";
+    porcentajeTexto.style.display = "block";
 
     progreso.style.width =
         porcentaje + "%";
 
-    if (texto) {
-        texto.innerText =
-            mensaje;
-    }
+    texto.innerText =
+        mensaje;
 
-    if (porcentajeTexto) {
-        porcentajeTexto.innerText =
-            porcentaje + "%";
-    }
+    porcentajeTexto.innerText =
+        porcentaje + "%";
 }
 
 /* ELEMENTOS */
