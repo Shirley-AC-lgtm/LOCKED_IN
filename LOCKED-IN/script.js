@@ -101,6 +101,42 @@ let streak = 0;
 
 let documentText = "";
 
+function mostrarProgresoAnalisis(
+    porcentaje,
+    mensaje
+) {
+
+    const progreso =
+        document.getElementById(
+            "analysisProgress"
+        );
+
+    const texto =
+        document.getElementById(
+            "analysisProgressText"
+        );
+
+    const porcentajeTexto =
+        document.getElementById(
+            "analysisProgressPercent"
+        );
+
+    if (!progreso) return;
+
+    progreso.style.width =
+        porcentaje + "%";
+
+    if (texto) {
+        texto.innerText =
+            mensaje;
+    }
+
+    if (porcentajeTexto) {
+        porcentajeTexto.innerText =
+            porcentaje + "%";
+    }
+}
+
 /* ELEMENTOS */
 
 const questionText = document.getElementById("question");
@@ -678,6 +714,11 @@ fileInput.addEventListener("change", (event) => {
                         )
                         .promise;
 
+                mostrarProgresoAnalisis(
+                    0,
+                    "Preparando documento..."
+                );
+
                 let text = "";
 
                 for (
@@ -690,6 +731,16 @@ fileInput.addEventListener("change", (event) => {
 
                     const content =
                         await page.getTextContent();
+
+                    const porcentaje =
+                        Math.round(
+                            (i / pdf.numPages) * 100
+                        );
+
+                    mostrarProgresoAnalisis(
+                        porcentaje,
+                        `Procesando página ${i} de ${pdf.numPages}`
+                    );
 
                     text +=
                         content.items
